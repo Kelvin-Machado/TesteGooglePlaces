@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeScreenViewController.swift
 //  TesteGooglePlaces
 //
 //  Created by Kelvin Batista Machado on 07/11/19.
@@ -8,13 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class HomeViewControlle: UIViewController {
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
-

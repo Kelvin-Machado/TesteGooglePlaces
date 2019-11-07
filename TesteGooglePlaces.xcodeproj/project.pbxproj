@@ -9,21 +9,19 @@
 /* Begin PBXBuildFile section */
 		B643CBDD23749A3900368E40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B643CBDC23749A3900368E40 /* AppDelegate.swift */; };
 		B643CBDF23749A3900368E40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B643CBDE23749A3900368E40 /* SceneDelegate.swift */; };
-		B643CBE123749A3900368E40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B643CBE023749A3900368E40 /* ViewController.swift */; };
-		B643CBE423749A3900368E40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B643CBE223749A3900368E40 /* Main.storyboard */; };
 		B643CBE623749A3B00368E40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B643CBE523749A3B00368E40 /* Assets.xcassets */; };
 		B643CBE923749A3B00368E40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B643CBE723749A3B00368E40 /* LaunchScreen.storyboard */; };
+		B643CBF223749B5300368E40 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B643CBF123749B5300368E40 /* HomeScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B643CBD923749A3900368E40 /* TesteGooglePlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TesteGooglePlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B643CBDC23749A3900368E40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B643CBDE23749A3900368E40 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B643CBE023749A3900368E40 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B643CBE323749A3900368E40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B643CBE523749A3B00368E40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B643CBE823749A3B00368E40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B643CBEA23749A3B00368E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B643CBF123749B5300368E40 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +54,46 @@
 		B643CBDB23749A3900368E40 /* TesteGooglePlaces */ = {
 			isa = PBXGroup;
 			children = (
+				B643CBF423749EBD00368E40 /* Model */,
+				B643CBF523749ECA00368E40 /* View */,
+				B643CBF023749B3B00368E40 /* View Model */,
+				B643CBF323749C9100368E40 /* Supporting Files */,
+			);
+			path = TesteGooglePlaces;
+			sourceTree = "<group>";
+		};
+		B643CBF023749B3B00368E40 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				B643CBF123749B5300368E40 /* HomeScreenViewController.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		B643CBF323749C9100368E40 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				B643CBDC23749A3900368E40 /* AppDelegate.swift */,
 				B643CBDE23749A3900368E40 /* SceneDelegate.swift */,
-				B643CBE023749A3900368E40 /* ViewController.swift */,
-				B643CBE223749A3900368E40 /* Main.storyboard */,
 				B643CBE523749A3B00368E40 /* Assets.xcassets */,
 				B643CBE723749A3B00368E40 /* LaunchScreen.storyboard */,
 				B643CBEA23749A3B00368E40 /* Info.plist */,
 			);
-			path = TesteGooglePlaces;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B643CBF423749EBD00368E40 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B643CBF523749ECA00368E40 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +156,6 @@
 			files = (
 				B643CBE923749A3B00368E40 /* LaunchScreen.storyboard in Resources */,
 				B643CBE623749A3B00368E40 /* Assets.xcassets in Resources */,
-				B643CBE423749A3900368E40 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +166,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B643CBE123749A3900368E40 /* ViewController.swift in Sources */,
 				B643CBDD23749A3900368E40 /* AppDelegate.swift in Sources */,
 				B643CBDF23749A3900368E40 /* SceneDelegate.swift in Sources */,
+				B643CBF223749B5300368E40 /* HomeScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B643CBE223749A3900368E40 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B643CBE323749A3900368E40 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B643CBE723749A3B00368E40 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -286,7 +306,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2FXPMLN8LH;
-				INFOPLIST_FILE = TesteGooglePlaces/Info.plist;
+				INFOPLIST_FILE = "TesteGooglePlaces/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +324,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2FXPMLN8LH;
-				INFOPLIST_FILE = TesteGooglePlaces/Info.plist;
+				INFOPLIST_FILE = "TesteGooglePlaces/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
