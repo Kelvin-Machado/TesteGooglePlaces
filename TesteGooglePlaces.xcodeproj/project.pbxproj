@@ -17,6 +17,7 @@
 		B643CBFB2374A54A00368E40 /* SelectPlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B643CBFA2374A54A00368E40 /* SelectPlaceTableViewController.swift */; };
 		B643CBFD2374AA7600368E40 /* OrderResume.swift in Sources */ = {isa = PBXBuildFile; fileRef = B643CBFC2374AA7600368E40 /* OrderResume.swift */; };
 		B662E39B2375C43800ED4404 /* PlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B662E39A2375C43800ED4404 /* PlacesCell.swift */; };
+		B662E39D2375F19200ED4404 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B662E39C2375F19200ED4404 /* OrderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B643CBFA2374A54A00368E40 /* SelectPlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPlaceTableViewController.swift; sourceTree = "<group>"; };
 		B643CBFC2374AA7600368E40 /* OrderResume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResume.swift; sourceTree = "<group>"; };
 		B662E39A2375C43800ED4404 /* PlacesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCell.swift; sourceTree = "<group>"; };
+		B662E39C2375F19200ED4404 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				B643CBF123749B5300368E40 /* HomeScreenViewController.swift */,
 				B643CBF62374A26300368E40 /* SelectPlaceViewController.swift */,
+				B662E39C2375F19200ED4404 /* OrderViewController.swift */,
 				B643CBF82374A3B900368E40 /* NavigationBar.swift */,
 				B662E39A2375C43800ED4404 /* PlacesCell.swift */,
 			);
@@ -182,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B643CBF92374A3B900368E40 /* NavigationBar.swift in Sources */,
+				B662E39D2375F19200ED4404 /* OrderViewController.swift in Sources */,
 				B643CBDD23749A3900368E40 /* AppDelegate.swift in Sources */,
 				B643CBDF23749A3900368E40 /* SceneDelegate.swift in Sources */,
 				B662E39B2375C43800ED4404 /* PlacesCell.swift in Sources */,

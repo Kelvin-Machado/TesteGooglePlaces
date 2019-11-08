@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewControlle: UIViewController {
+class HomeViewController: UIViewController {
 
     let headerLabel = UILabel()
     let textLabel = UILabel()

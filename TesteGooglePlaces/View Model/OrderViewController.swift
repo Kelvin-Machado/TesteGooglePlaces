@@ -1,62 +1,83 @@
 //
-//  SelectPlaceViewController.swift
+//  OrderViewController.swift
 //  TesteGooglePlaces
 //
-//  Created by Kelvin Batista Machado on 07/11/19.
+//  Created by Kelvin Batista Machado on 08/11/19.
 //  Copyright © 2019 Kelvin Batista Machado. All rights reserved.
 //
 
 import UIKit
 
-class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-
-    let placesTableView = UITableView()
-    let textSearch = UITextField()
+class OrderViewController: UIViewController {
     
     let headerLabel = UILabel()
-    let questionLabel = UILabel()
-    let finalizeOrderButton = UIButton()
     
-    var resultsArray:[Dictionary<String, AnyObject>] = Array()
+    let orderLocation = UILabel()
+    let orderAdress = UILabel()
+    
+    let questionLabel = UILabel()
+    let questionSubLabel = UILabel()
+    let textSearch = UITextField()
+    let finalizeOrderButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        
-//        placesTableView.register(UITableViewCell.self, forCellReuseIdentifier: "PlacesCell")
-        self.placesTableView.register(PlacesCell.self, forCellReuseIdentifier: "PlacesCell")
-        
-        textSearch.addTarget(self, action: #selector(searchPlaceFromGoogle(_:)), for: .editingChanged)
-        
+        navigationController?.navigationBar.topItem?.title = " "
         setupHeader()
+        setupChosenPlace()
         setupQuestion()
-        setupPlaces()
+        setupProduct()
         setupFooterButton()
-        setupPlacesTableView()
-        
     }
     
     func setupHeader() {
-        
         headerLabel.backgroundColor = #colorLiteral(red: 0.4874656796, green: 0.395947814, blue: 1, alpha: 1)
         headerLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         headerLabel.font = UIFont.init(name: "Helvetica Neue", size: 16)
         headerLabel.textAlignment = .left
+        
+        orderLocation.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        orderLocation.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        orderLocation.font = UIFont.init(name: "Helvetica Neue", size: 16)
+        orderLocation.text = OrderResume.self.local
+        orderAdress.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        orderAdress.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        orderAdress.font = UIFont.init(name: "Helvetica Neue", size: 14)
+        orderAdress.text = OrderResume.self.adress
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.firstLineHeadIndent = 20
         headerLabel.attributedText = NSAttributedString(string: "Delivery", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         
         view.addSubview(headerLabel)
+        view.addSubview(orderLocation)
+        view.addSubview(orderAdress)
         
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        orderLocation.translatesAutoresizingMaskIntoConstraints = false
+        orderAdress.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
         headerLabel.topAnchor.constraint(equalTo: view.topAnchor),
         headerLabel.leftAnchor.constraint(equalTo: view.leftAnchor),
         headerLabel.rightAnchor.constraint(equalTo: view.rightAnchor),
-        headerLabel.heightAnchor.constraint(equalToConstant: 35)])
+        headerLabel.heightAnchor.constraint(equalToConstant: 35),
+        
+        orderLocation.topAnchor.constraint(equalTo: headerLabel.bottomAnchor),
+        orderLocation.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+        orderLocation.rightAnchor.constraint(equalTo: view.rightAnchor, constant:-20),
+        orderLocation.widthAnchor.constraint(equalToConstant: view.frame.width - 40),
+
+        orderAdress.topAnchor.constraint(equalTo: orderLocation.bottomAnchor),
+        orderAdress.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+        orderAdress.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+        orderAdress.widthAnchor.constraint(equalToConstant: view.frame.width - 40)
+        ])
+    }
+    
+    func setupChosenPlace() {
+        
     }
     
     func setupQuestion() {
@@ -64,24 +85,37 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
         questionLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         questionLabel.numberOfLines = 0
         questionLabel.textAlignment = .justified
-        questionLabel.text = "Onde podemos encontrar o que você deseja?"
+        questionLabel.text = "O que você deseja?"
         
         view.addSubview(questionLabel)
         
+        questionSubLabel.font = UIFont.init(name: "Helvetica Neue", size: 14)
+        questionSubLabel.textColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+        questionSubLabel.numberOfLines = 0
+        questionSubLabel.textAlignment = .justified
+        questionSubLabel.text = "Descreva direitinho o que você deseja dessa loja que um shipper vai até lá comprar pra você :)"
+        
+        view.addSubview(questionSubLabel)
+        
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
+        questionSubLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-        questionLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 20),
+        questionLabel.topAnchor.constraint(equalTo: orderAdress.bottomAnchor, constant: 20),
         questionLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-        questionLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)])
+        questionLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+        
+        questionSubLabel.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 20),
+        questionSubLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+        questionSubLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)])
         
     }
     
-    func setupPlaces() {
+    func setupProduct() {
         textSearch.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         textSearch.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
-        let placeholder = NSAttributedString(string: "Busca", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        let placeholder = NSAttributedString(string: "Produto da Loja", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         textSearch.attributedPlaceholder = placeholder;
         
         textSearch.borderStyle = .roundedRect
@@ -89,7 +123,6 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
         textSearch.layer.borderWidth = 1
         textSearch.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
         textSearch.font = UIFont.init(name: "Helvetica Neue", size: 16)
-        textSearch.autocorrectionType = .no
         textSearch.clipsToBounds = true
         
         view.addSubview(textSearch)
@@ -99,27 +132,8 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
         NSLayoutConstraint.activate([
         textSearch.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
         textSearch.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
-        textSearch.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 20),
+        textSearch.topAnchor.constraint(equalTo: questionSubLabel.bottomAnchor, constant: 20),
         textSearch.heightAnchor.constraint(equalToConstant: 40)])
-    }
-    
-    //TABELA - configuração
-    func setupPlacesTableView(){
-        //placesTableView.separatorStyle = .none
-        view.addSubview(placesTableView)
-        
-//        placesTableView.register(PlacesCell.self, forCellReuseIdentifier: "PlacesCell")
-        placesTableView.estimatedRowHeight = 44
-        placesTableView.dataSource = self
-        placesTableView.delegate = self
-        placesTableView.translatesAutoresizingMaskIntoConstraints = false
-        placesTableView.clipsToBounds = true
-        
-        NSLayoutConstraint.activate([
-            placesTableView.topAnchor.constraint(equalTo: textSearch.bottomAnchor),
-            placesTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            placesTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
-            placesTableView.bottomAnchor.constraint(equalTo: finalizeOrderButton.topAnchor, constant: -20)])
     }
     
     func setupFooterButton() {
@@ -143,10 +157,9 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     @objc func finalizeButtonTapped(){
-        let placeOrder = OrderViewController()
+        let placeOrder = HomeViewController()
         navigationController?.pushViewController(placeOrder, animated: true)
     }
 
 }
-
 

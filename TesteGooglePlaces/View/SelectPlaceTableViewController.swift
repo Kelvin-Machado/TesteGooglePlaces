@@ -29,10 +29,10 @@ extension SelectPlaceViewController {
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          tableView.deselectRow(at: indexPath, animated: true)
          let place = self.resultsArray[indexPath.row]
-         OrderResume.local = "\(place["name"] as! String) \(place["formatted_address"] as! String)"
-         
-         let placeOrder = HomeViewControlle()
-         navigationController?.pushViewController(placeOrder, animated: true)
+        OrderResume.local = textSearch.text
+        OrderResume.adress = "\(place["name"] as! String) \(place["formatted_address"] as! String)"
+//        let placeOrder = OrderViewController()
+//         navigationController?.pushViewController(placeOrder, animated: true)
 
      }
 
