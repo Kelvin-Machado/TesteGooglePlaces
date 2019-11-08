@@ -8,35 +8,36 @@
 
 import UIKit
 
-class SelectPlaceViewController: UIViewController {
-    
-    let placesTable = SelectPlaceTableViewController()
+class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+
+    let placesTableView = UITableView()
     let textSearch = UITextField()
     
     let headerLabel = UILabel()
     let questionLabel = UILabel()
     let finalizeOrderButton = UIButton()
     
-    override func viewDidLoad() {
+    var resultsArray:[Dictionary<String, AnyObject>] = Array()
 
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
-        self.addChild(placesTable)
-        view.addSubview(placesTable.tableView)
+//        placesTableView.register(UITableViewCell.self, forCellReuseIdentifier: "PlacesCell")
+        self.placesTableView.register(PlacesCell.self, forCellReuseIdentifier: "PlacesCell")
+        
+        textSearch.addTarget(self, action: #selector(searchPlaceFromGoogle(_:)), for: .editingChanged)
         
         setupHeader()
         setupQuestion()
         setupPlaces()
         setupFooterButton()
-
+        setupPlacesTableView()
+        
     }
     
-    
     func setupHeader() {
-        
-        navigationController?.navigationBar.topItem?.title = " "
         
         headerLabel.backgroundColor = #colorLiteral(red: 0.4874656796, green: 0.395947814, blue: 1, alpha: 1)
         headerLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -102,6 +103,25 @@ class SelectPlaceViewController: UIViewController {
         textSearch.heightAnchor.constraint(equalToConstant: 40)])
     }
     
+    //TABELA - configuração
+    func setupPlacesTableView(){
+        //placesTableView.separatorStyle = .none
+        view.addSubview(placesTableView)
+        
+//        placesTableView.register(PlacesCell.self, forCellReuseIdentifier: "PlacesCell")
+        placesTableView.estimatedRowHeight = 44
+        placesTableView.dataSource = self
+        placesTableView.delegate = self
+        placesTableView.translatesAutoresizingMaskIntoConstraints = false
+        placesTableView.clipsToBounds = true
+        
+        NSLayoutConstraint.activate([
+            placesTableView.topAnchor.constraint(equalTo: textSearch.bottomAnchor),
+            placesTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            placesTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+            placesTableView.bottomAnchor.constraint(equalTo: finalizeOrderButton.topAnchor, constant: -20)])
+    }
+    
     func setupFooterButton() {
         
         finalizeOrderButton.titleLabel?.font = UIFont(name:"Helvetica Neue", size: 16)
@@ -126,6 +146,7 @@ class SelectPlaceViewController: UIViewController {
         let placeOrder = HomeViewControlle()
         navigationController?.pushViewController(placeOrder, animated: true)
     }
-    
-    
+
 }
+
+
