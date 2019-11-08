@@ -10,25 +10,33 @@ import UIKit
 
 class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
+//    MARK: - Views
+    
     let placesTableView = UITableView()
     let textSearch = UITextField()
     
     let headerLabel = UILabel()
     let questionLabel = UILabel()
     let finalizeOrderButton = UIButton()
+        
+//    MARK: - Properties
+        
+    fileprivate let keyboardAwareBottomLayoutGuide: UILayoutGuide = UILayoutGuide()
+    fileprivate var keyboardTopAnchorConstraint: NSLayoutConstraint!
     
     var resultsArray:[Dictionary<String, AnyObject>] = Array()
-
+    
+//  MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
-//        placesTableView.register(UITableViewCell.self, forCellReuseIdentifier: "PlacesCell")
         self.placesTableView.register(PlacesCell.self, forCellReuseIdentifier: "PlacesCell")
         
         textSearch.addTarget(self, action: #selector(searchPlaceFromGoogle(_:)), for: .editingChanged)
         
+        setupKeyboard()
         setupHeader()
         setupQuestion()
         setupPlaces()
@@ -84,6 +92,7 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
         let placeholder = NSAttributedString(string: "Busca", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         textSearch.attributedPlaceholder = placeholder;
         
+        textSearch.becomeFirstResponder()
         textSearch.borderStyle = .roundedRect
         textSearch.layer.cornerRadius = 10
         textSearch.layer.borderWidth = 1
@@ -105,10 +114,8 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
     
     //TABELA - configuração
     func setupPlacesTableView(){
-        //placesTableView.separatorStyle = .none
         view.addSubview(placesTableView)
         
-//        placesTableView.register(PlacesCell.self, forCellReuseIdentifier: "PlacesCell")
         placesTableView.estimatedRowHeight = 44
         placesTableView.dataSource = self
         placesTableView.delegate = self
@@ -119,7 +126,8 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
             placesTableView.topAnchor.constraint(equalTo: textSearch.bottomAnchor),
             placesTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             placesTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
-            placesTableView.bottomAnchor.constraint(equalTo: finalizeOrderButton.topAnchor, constant: -20)])
+            placesTableView.bottomAnchor.constraint(equalTo: finalizeOrderButton.topAnchor, constant: -20)
+        ])
     }
     
     func setupFooterButton() {
@@ -128,6 +136,7 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
         finalizeOrderButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         finalizeOrderButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         finalizeOrderButton.setTitle("Finalizar pedido", for: .normal)
+        finalizeOrderButton.layer.cornerRadius = 20
 
         finalizeOrderButton.addTarget(self, action: #selector(finalizeButtonTapped), for: .touchUpInside)
         
@@ -138,14 +147,65 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
         NSLayoutConstraint.activate([
         finalizeOrderButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
         finalizeOrderButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
-        finalizeOrderButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
-        finalizeOrderButton.heightAnchor.constraint(equalToConstant: 35)])
+        finalizeOrderButton.bottomAnchor.constraint(equalTo: keyboardAwareBottomLayoutGuide.topAnchor, constant: -10),
+        finalizeOrderButton.heightAnchor.constraint(equalToConstant: 40)])
     }
     
     @objc func finalizeButtonTapped(){
         let placeOrder = OrderViewController()
         navigationController?.pushViewController(placeOrder, animated: true)
     }
+    
+    
+    
+    //MARK: - Setup keyboard
+     func setupKeyboard(){
+         self.view.addLayoutGuide(self.keyboardAwareBottomLayoutGuide)
+         self.keyboardTopAnchorConstraint = self.view.layoutMarginsGuide.bottomAnchor.constraint(equalTo: keyboardAwareBottomLayoutGuide.topAnchor, constant: 0)
+         self.keyboardTopAnchorConstraint.isActive = true
+         self.keyboardAwareBottomLayoutGuide.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor).isActive = true
+         
+         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+     }
+     
+     @objc func keyboardWillShow(notification: NSNotification) {
+         updateKeyboardAwareBottomLayoutGuide(with: notification, hiding: false)
+     }
+
+     @objc func keyboardWillHide(notification: NSNotification) {
+         updateKeyboardAwareBottomLayoutGuide(with: notification, hiding: true)
+     }
+     
+     fileprivate func updateKeyboardAwareBottomLayoutGuide(with notification: NSNotification, hiding: Bool) {
+         let userInfo = notification.userInfo
+
+         let animationDuration = (userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue
+         let keyboardEndFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+
+         let rawAnimationCurve = (userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber)?.uint32Value
+
+         guard let animDuration = animationDuration,
+             let keybrdEndFrame = keyboardEndFrame,
+             let rawAnimCurve = rawAnimationCurve else {
+                 return
+         }
+
+         let convertedKeyboardEndFrame = view.convert(keybrdEndFrame, from: view.window)
+
+         let rawAnimCurveAdjusted = UInt(rawAnimCurve << 16)
+         let animationCurve = UIView.AnimationOptions(rawValue: rawAnimCurveAdjusted)
+
+         self.keyboardTopAnchorConstraint.constant = hiding ? 0 : convertedKeyboardEndFrame.size.height
+
+         self.view.setNeedsLayout()
+
+         UIView.animate(withDuration: animDuration, delay: 0.0, options: [.beginFromCurrentState, animationCurve], animations: {
+             self.view.layoutIfNeeded()
+         }, completion: { success in
+             //
+         })
+     }
 
 }
 

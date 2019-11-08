@@ -10,6 +10,7 @@ import UIKit
 
 class OrderViewController: UIViewController {
     
+//    MARK: - Views
     let headerLabel = UILabel()
     
     let orderLocation = UILabel()
@@ -19,11 +20,20 @@ class OrderViewController: UIViewController {
     let questionSubLabel = UILabel()
     let textSearch = UITextField()
     let finalizeOrderButton = UIButton()
+    
+//    MARK: - Properties
+    
+    fileprivate let keyboardAwareBottomLayoutGuide: UILayoutGuide = UILayoutGuide()
+    fileprivate var keyboardTopAnchorConstraint: NSLayoutConstraint!
+    
+//    MARK: - Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         navigationController?.navigationBar.topItem?.title = " "
+        
+        setupKeyboard()
         setupHeader()
         setupChosenPlace()
         setupQuestion()
@@ -39,12 +49,15 @@ class OrderViewController: UIViewController {
         
         orderLocation.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         orderLocation.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        orderLocation.font = UIFont.init(name: "Helvetica Neue", size: 16)
+        orderLocation.font = UIFont.init(name: "HelveticaNeue-Bold", size: 16)
         orderLocation.text = OrderResume.self.local
+        
         orderAdress.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         orderAdress.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         orderAdress.font = UIFont.init(name: "Helvetica Neue", size: 14)
+        orderAdress.numberOfLines = 0
         orderAdress.text = OrderResume.self.adress
+        orderAdress.addLine(position: .LINE_POSITION_BOTTOM, color: .lightGray, width: 1.0)
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.firstLineHeadIndent = 20
@@ -64,12 +77,12 @@ class OrderViewController: UIViewController {
         headerLabel.rightAnchor.constraint(equalTo: view.rightAnchor),
         headerLabel.heightAnchor.constraint(equalToConstant: 35),
         
-        orderLocation.topAnchor.constraint(equalTo: headerLabel.bottomAnchor),
+        orderLocation.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 20),
         orderLocation.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
         orderLocation.rightAnchor.constraint(equalTo: view.rightAnchor, constant:-20),
         orderLocation.widthAnchor.constraint(equalToConstant: view.frame.width - 40),
 
-        orderAdress.topAnchor.constraint(equalTo: orderLocation.bottomAnchor),
+        orderAdress.topAnchor.constraint(equalTo: orderLocation.bottomAnchor, constant: 10),
         orderAdress.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
         orderAdress.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
         orderAdress.widthAnchor.constraint(equalToConstant: view.frame.width - 40)
@@ -118,6 +131,7 @@ class OrderViewController: UIViewController {
         let placeholder = NSAttributedString(string: "Produto da Loja", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         textSearch.attributedPlaceholder = placeholder;
         
+        textSearch.becomeFirstResponder()
         textSearch.borderStyle = .roundedRect
         textSearch.layer.cornerRadius = 10
         textSearch.layer.borderWidth = 1
@@ -141,7 +155,8 @@ class OrderViewController: UIViewController {
         finalizeOrderButton.titleLabel?.font = UIFont(name:"Helvetica Neue", size: 16)
         finalizeOrderButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         finalizeOrderButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        finalizeOrderButton.setTitle("Finalizar pedido", for: .normal)
+        finalizeOrderButton.setTitle("Continuar", for: .normal)
+        finalizeOrderButton.layer.cornerRadius = 20
 
         finalizeOrderButton.addTarget(self, action: #selector(finalizeButtonTapped), for: .touchUpInside)
         
@@ -152,14 +167,64 @@ class OrderViewController: UIViewController {
         NSLayoutConstraint.activate([
         finalizeOrderButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
         finalizeOrderButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
-        finalizeOrderButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
-        finalizeOrderButton.heightAnchor.constraint(equalToConstant: 35)])
+        finalizeOrderButton.bottomAnchor.constraint(equalTo: keyboardAwareBottomLayoutGuide.topAnchor, constant: -10),
+        finalizeOrderButton.heightAnchor.constraint(equalToConstant: 40)])
     }
     
     @objc func finalizeButtonTapped(){
         let placeOrder = HomeViewController()
         navigationController?.pushViewController(placeOrder, animated: true)
     }
+    
+    
+    //MARK: - Setup keyboard
+     func setupKeyboard(){
+         self.view.addLayoutGuide(self.keyboardAwareBottomLayoutGuide)
+         self.keyboardTopAnchorConstraint = self.view.layoutMarginsGuide.bottomAnchor.constraint(equalTo: keyboardAwareBottomLayoutGuide.topAnchor, constant: 0)
+         self.keyboardTopAnchorConstraint.isActive = true
+         self.keyboardAwareBottomLayoutGuide.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor).isActive = true
+         
+         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+     }
+     
+     @objc func keyboardWillShow(notification: NSNotification) {
+         updateKeyboardAwareBottomLayoutGuide(with: notification, hiding: false)
+     }
+
+     @objc func keyboardWillHide(notification: NSNotification) {
+         updateKeyboardAwareBottomLayoutGuide(with: notification, hiding: true)
+     }
+     
+     fileprivate func updateKeyboardAwareBottomLayoutGuide(with notification: NSNotification, hiding: Bool) {
+         let userInfo = notification.userInfo
+
+         let animationDuration = (userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue
+         let keyboardEndFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+
+         let rawAnimationCurve = (userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber)?.uint32Value
+
+         guard let animDuration = animationDuration,
+             let keybrdEndFrame = keyboardEndFrame,
+             let rawAnimCurve = rawAnimationCurve else {
+                 return
+         }
+
+         let convertedKeyboardEndFrame = view.convert(keybrdEndFrame, from: view.window)
+
+         let rawAnimCurveAdjusted = UInt(rawAnimCurve << 16)
+         let animationCurve = UIView.AnimationOptions(rawValue: rawAnimCurveAdjusted)
+
+         self.keyboardTopAnchorConstraint.constant = hiding ? 0 : convertedKeyboardEndFrame.size.height
+
+         self.view.setNeedsLayout()
+
+         UIView.animate(withDuration: animDuration, delay: 0.0, options: [.beginFromCurrentState, animationCurve], animations: {
+             self.view.layoutIfNeeded()
+         }, completion: { success in
+             //
+         })
+     }
 
 }
 
