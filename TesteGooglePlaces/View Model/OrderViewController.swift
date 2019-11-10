@@ -18,7 +18,7 @@ class OrderViewController: UIViewController {
     
     let questionLabel = UILabel()
     let questionSubLabel = UILabel()
-    let textSearch = UITextField()
+    let textProduct = UITextField()
     let finalizeOrderButton = UIButton()
     
 //    MARK: - Properties
@@ -31,9 +31,9 @@ class OrderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        navigationController?.navigationBar.topItem?.title = " "
         
         setupKeyboard()
+        setupNavBar()
         setupHeader()
         setupChosenPlace()
         setupQuestion()
@@ -109,7 +109,7 @@ class OrderViewController: UIViewController {
         questionSubLabel.textColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
         questionSubLabel.numberOfLines = 0
         questionSubLabel.textAlignment = .justified
-        questionSubLabel.text = "Descreva direitinho o que você deseja dessa loja que um shipper vai até lá comprar pra você :)"
+        questionSubLabel.text = "Descreva direitinho o que você deseja dessa loja que um shipper vai até lá comprar pra você 🙂"
         
         view.addSubview(questionSubLabel)
         
@@ -128,29 +128,29 @@ class OrderViewController: UIViewController {
     }
     
     func setupProduct() {
-        textSearch.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        textSearch.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        textProduct.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        textProduct.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
         let placeholder = NSAttributedString(string: "Produto da Loja", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-        textSearch.attributedPlaceholder = placeholder;
+        textProduct.attributedPlaceholder = placeholder;
         
-        textSearch.becomeFirstResponder()
-        textSearch.borderStyle = .roundedRect
-        textSearch.layer.cornerRadius = 10
-        textSearch.layer.borderWidth = 1
-        textSearch.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
-        textSearch.font = UIFont.init(name: "Helvetica Neue", size: 16)
-        textSearch.clipsToBounds = true
+        textProduct.becomeFirstResponder()
+        textProduct.borderStyle = .roundedRect
+        textProduct.layer.cornerRadius = 10
+        textProduct.layer.borderWidth = 1
+        textProduct.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+        textProduct.font = UIFont.init(name: "Helvetica Neue", size: 16)
+        textProduct.clipsToBounds = true
         
-        view.addSubview(textSearch)
+        view.addSubview(textProduct)
         
-        textSearch.translatesAutoresizingMaskIntoConstraints = false
+        textProduct.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            textSearch.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-            textSearch.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
-            textSearch.topAnchor.constraint(equalTo: questionSubLabel.bottomAnchor, constant: 20),
-            textSearch.heightAnchor.constraint(equalToConstant: 40)])
+            textProduct.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+            textProduct.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+            textProduct.topAnchor.constraint(equalTo: questionSubLabel.bottomAnchor, constant: 20),
+            textProduct.heightAnchor.constraint(equalToConstant: 40)])
     }
     
     func setupFooterButton() {
@@ -175,8 +175,9 @@ class OrderViewController: UIViewController {
     }
     
     @objc func finalizeButtonTapped(){
-        let placeOrder = HomeViewController()
-        navigationController?.pushViewController(placeOrder, animated: true)
+        OrderResume.self.product = textProduct.text
+        let amount = EstimateAmountViewController()
+        navigationController?.pushViewController(amount, animated: true)
     }
     
     
@@ -225,7 +226,7 @@ class OrderViewController: UIViewController {
          UIView.animate(withDuration: animDuration, delay: 0.0, options: [.beginFromCurrentState, animationCurve], animations: {
              self.view.layoutIfNeeded()
          }, completion: { success in
-             //
+             
          })
      }
 
