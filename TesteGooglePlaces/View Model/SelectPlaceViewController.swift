@@ -61,10 +61,10 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-        headerLabel.topAnchor.constraint(equalTo: view.topAnchor),
-        headerLabel.leftAnchor.constraint(equalTo: view.leftAnchor),
-        headerLabel.rightAnchor.constraint(equalTo: view.rightAnchor),
-        headerLabel.heightAnchor.constraint(equalToConstant: 35)])
+            headerLabel.topAnchor.constraint(equalTo: view.topAnchor),
+            headerLabel.leftAnchor.constraint(equalTo: view.leftAnchor),
+            headerLabel.rightAnchor.constraint(equalTo: view.rightAnchor),
+            headerLabel.heightAnchor.constraint(equalToConstant: 35)])
     }
     
     func setupQuestion() {
@@ -79,9 +79,10 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-        questionLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 20),
-        questionLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-        questionLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)])
+            questionLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 20),
+            questionLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+            questionLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
+        ])
         
     }
     
@@ -145,10 +146,11 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
         finalizeOrderButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-        finalizeOrderButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-        finalizeOrderButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
-        finalizeOrderButton.bottomAnchor.constraint(equalTo: keyboardAwareBottomLayoutGuide.topAnchor, constant: -10),
-        finalizeOrderButton.heightAnchor.constraint(equalToConstant: 40)])
+            finalizeOrderButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+            finalizeOrderButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+            finalizeOrderButton.bottomAnchor.constraint(equalTo: keyboardAwareBottomLayoutGuide.topAnchor, constant: -10),
+            finalizeOrderButton.heightAnchor.constraint(equalToConstant: 40)
+        ])
     }
     
     @objc func finalizeButtonTapped(){
@@ -203,7 +205,7 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
          UIView.animate(withDuration: animDuration, delay: 0.0, options: [.beginFromCurrentState, animationCurve], animations: {
              self.view.layoutIfNeeded()
          }, completion: { success in
-             //
+             
          })
      }
 
