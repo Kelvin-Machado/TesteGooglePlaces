@@ -248,9 +248,7 @@ class EstimateAmountViewController: UIViewController {
     
     @objc func finalizeButtonTapped(){
         
-        if let text = textAmount.text {
-            OrderResume.self.price = Double(text)
-        }
+        OrderResume.self.formattedPrice = textAmount.text 
         
         let paymentScreen = HomeViewController()
         navigationController?.pushViewController(paymentScreen, animated: true)

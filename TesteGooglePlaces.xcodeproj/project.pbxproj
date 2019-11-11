@@ -19,6 +19,7 @@
 		B6511AD123788132000FF6DE /* EstimateAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6511AD023788132000FF6DE /* EstimateAmountViewController.swift */; };
 		B6511AD323789423000FF6DE /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6511AD223789423000FF6DE /* TextFormatter.swift */; };
 		B6511AD523789B74000FF6DE /* locationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6511AD423789B74000FF6DE /* locationViewController.swift */; };
+		B6511AD72378C666000FF6DE /* coords.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6511AD62378C666000FF6DE /* coords.swift */; };
 		B662E39B2375C43800ED4404 /* PlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B662E39A2375C43800ED4404 /* PlacesCell.swift */; };
 		B662E39D2375F19200ED4404 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B662E39C2375F19200ED4404 /* OrderViewController.swift */; };
 		B6EAD36F23761DE30090E631 /* Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EAD36E23761DE30090E631 /* Lines.swift */; };
@@ -39,6 +40,7 @@
 		B6511AD023788132000FF6DE /* EstimateAmountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateAmountViewController.swift; sourceTree = "<group>"; };
 		B6511AD223789423000FF6DE /* TextFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
 		B6511AD423789B74000FF6DE /* locationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationViewController.swift; sourceTree = "<group>"; };
+		B6511AD62378C666000FF6DE /* coords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coords.swift; sourceTree = "<group>"; };
 		B662E39A2375C43800ED4404 /* PlacesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCell.swift; sourceTree = "<group>"; };
 		B662E39C2375F19200ED4404 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		B6EAD36E23761DE30090E631 /* Lines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lines.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				B643CBFC2374AA7600368E40 /* OrderResume.swift */,
+				B6511AD62378C666000FF6DE /* coords.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				B6511AD523789B74000FF6DE /* locationViewController.swift in Sources */,
 				B6511AD323789423000FF6DE /* TextFormatter.swift in Sources */,
 				B6511AD123788132000FF6DE /* EstimateAmountViewController.swift in Sources */,
+				B6511AD72378C666000FF6DE /* coords.swift in Sources */,
 				B643CBDD23749A3900368E40 /* AppDelegate.swift in Sources */,
 				B643CBDF23749A3900368E40 /* SceneDelegate.swift in Sources */,
 				B662E39B2375C43800ED4404 /* PlacesCell.swift in Sources */,

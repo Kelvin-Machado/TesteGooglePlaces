@@ -23,7 +23,6 @@ class HomeViewController: UIViewController {
         setupDeliveryButton()
     }
     
-    
     func setupText() {
 
         headerLabel.font = UIFont.init(name: "Helvetica Neue", size: 30)

@@ -16,7 +16,7 @@ extension String {
         var number: NSNumber!
         let formatter = NumberFormatter()
         formatter.numberStyle = .currencyAccounting
-        formatter.currencySymbol = ""
+        formatter.currencySymbol = "R$ "
         formatter.maximumFractionDigits = 2
         formatter.minimumFractionDigits = 2
 
@@ -28,6 +28,9 @@ extension String {
         let double = (amountWithPrefix as NSString).doubleValue
         
         number = NSNumber(value: (double / 100))
+        
+        // save the raw value of amount
+        OrderResume.price = double / 100
 
         // if first number is 0 or all numbers were deleted
         guard number != 0 as NSNumber else {
