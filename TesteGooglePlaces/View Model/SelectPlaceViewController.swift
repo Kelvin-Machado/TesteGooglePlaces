@@ -136,7 +136,7 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
         finalizeOrderButton.titleLabel?.font = UIFont(name:"Helvetica Neue", size: 16)
         finalizeOrderButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         finalizeOrderButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        finalizeOrderButton.setTitle("Finalizar pedido", for: .normal)
+        finalizeOrderButton.setTitle("Continuar", for: .normal)
         finalizeOrderButton.layer.cornerRadius = 20
 
         finalizeOrderButton.addTarget(self, action: #selector(finalizeButtonTapped), for: .touchUpInside)
