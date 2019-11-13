@@ -2,7 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysUsageDescription</key>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict/>
+		<key>https://d9eqa4nu35.execute-api.sa-east-1.amazonaws.com/</key>
+		<true/>
+	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Permitir acesso a localização do usuário</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Permitir acesso a localização do usuário</string>
