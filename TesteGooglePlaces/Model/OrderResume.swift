@@ -13,12 +13,8 @@ struct OrderResume {
     static var adress: String!
     static var product: String!
     static var price: Double!
-    
-//    init(local: String, adress: String, product: String, price: Double) {
-//        OrderResume.self.local = local
-//        OrderResume.self.adress = adress
-//        OrderResume.self.product = product
-//        OrderResume.self.price = price
-//    }
+    static var formattedPrice: String!
+    static var formattedUserLocation: String!
 }
+
 

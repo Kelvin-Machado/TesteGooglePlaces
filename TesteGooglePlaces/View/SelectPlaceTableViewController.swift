@@ -31,6 +31,19 @@ extension SelectPlaceViewController {
          let place = self.resultsArray[indexPath.row]
         OrderResume.local = "\(place["name"] as! String)"
         OrderResume.adress = "\(place["formatted_address"] as! String)"
+        print(place["geometry"] as Any)
+        
+        var location: [String : AnyObject]
+        var coords: [String : AnyObject]
+        location = place["geometry"]! as! [String : AnyObject]
+        coords = location["location"]! as! [String : AnyObject]
+        var lat:NSNumber!, lng:NSNumber!
+        for _ in coords {
+            lat = coords["lat"]! as? NSNumber
+            lng = coords["lng"]! as? NSNumber
+        }
+        storeCoords.self.storeLatitude = lat.stringValue
+        storeCoords.self.storeLongitude = lng.stringValue
      }
 
      
@@ -51,6 +64,7 @@ extension SelectPlaceViewController {
                              if let dict = jsonDict as? Dictionary<String, AnyObject>{
                                  
                                  if let results = dict["results"] as? [Dictionary<String, AnyObject>] {
+//                                    print("json == \(results)") ///remover
                                      self.resultsArray.removeAll()
                                      for dct in results {
                                          self.resultsArray.append(dct)
