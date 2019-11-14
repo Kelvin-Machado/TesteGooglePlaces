@@ -20,11 +20,12 @@
 		B6511AD323789423000FF6DE /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6511AD223789423000FF6DE /* TextFormatter.swift */; };
 		B6511AD523789B74000FF6DE /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6511AD423789B74000FF6DE /* LocationViewController.swift */; };
 		B6511AD72378C666000FF6DE /* Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6511AD62378C666000FF6DE /* Checkout.swift */; };
+		B6560DE9237DEE750043C319 /* LocationViewControllerExDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6560DE8237DEE750043C319 /* LocationViewControllerExDesign.swift */; };
 		B662E39B2375C43800ED4404 /* PlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B662E39A2375C43800ED4404 /* PlacesCell.swift */; };
 		B662E39D2375F19200ED4404 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B662E39C2375F19200ED4404 /* OrderViewController.swift */; };
 		B666A1F4237B07B8006C3B44 /* CreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666A1F3237B07B8006C3B44 /* CreditCardViewController.swift */; };
-		B666A1F6237B0839006C3B44 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666A1F5237B0839006C3B44 /* OrderViewModel.swift */; };
-		B666A1F8237B095C006C3B44 /* EstimateAmountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666A1F7237B095C006C3B44 /* EstimateAmountModel.swift */; };
+		B666A1F6237B0839006C3B44 /* OrderViewControllerDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666A1F5237B0839006C3B44 /* OrderViewControllerDesign.swift */; };
+		B666A1F8237B095C006C3B44 /* EstimateAmountDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666A1F7237B095C006C3B44 /* EstimateAmountDesign.swift */; };
 		B666A1FC237B68F7006C3B44 /* LocationViewControllerExLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666A1FB237B68F7006C3B44 /* LocationViewControllerExLocation.swift */; };
 		B666A1FE237B7DBC006C3B44 /* ValueResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666A1FD237B7DBC006C3B44 /* ValueResponse.swift */; };
 		B666A200237B7E75006C3B44 /* LocationViewControllerExPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666A1FF237B7E75006C3B44 /* LocationViewControllerExPost.swift */; };
@@ -47,11 +48,12 @@
 		B6511AD223789423000FF6DE /* TextFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
 		B6511AD423789B74000FF6DE /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		B6511AD62378C666000FF6DE /* Checkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkout.swift; sourceTree = "<group>"; };
+		B6560DE8237DEE750043C319 /* LocationViewControllerExDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewControllerExDesign.swift; sourceTree = "<group>"; };
 		B662E39A2375C43800ED4404 /* PlacesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCell.swift; sourceTree = "<group>"; };
 		B662E39C2375F19200ED4404 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		B666A1F3237B07B8006C3B44 /* CreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardViewController.swift; sourceTree = "<group>"; };
-		B666A1F5237B0839006C3B44 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
-		B666A1F7237B095C006C3B44 /* EstimateAmountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateAmountModel.swift; sourceTree = "<group>"; };
+		B666A1F5237B0839006C3B44 /* OrderViewControllerDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewControllerDesign.swift; sourceTree = "<group>"; };
+		B666A1F7237B095C006C3B44 /* EstimateAmountDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateAmountDesign.swift; sourceTree = "<group>"; };
 		B666A1FB237B68F7006C3B44 /* LocationViewControllerExLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewControllerExLocation.swift; sourceTree = "<group>"; };
 		B666A1FD237B7DBC006C3B44 /* ValueResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueResponse.swift; sourceTree = "<group>"; };
 		B666A1FF237B7E75006C3B44 /* LocationViewControllerExPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewControllerExPost.swift; sourceTree = "<group>"; };
@@ -88,24 +90,25 @@
 		B643CBDB23749A3900368E40 /* TesteGooglePlaces */ = {
 			isa = PBXGroup;
 			children = (
-				B643CBF423749EBD00368E40 /* Model */,
-				B643CBF523749ECA00368E40 /* View */,
-				B643CBF023749B3B00368E40 /* View Model */,
+				B643CBF423749EBD00368E40 /* Data */,
+				B643CBF523749ECA00368E40 /* ViewController */,
+				B643CBF023749B3B00368E40 /* Design */,
 				B643CBF323749C9100368E40 /* Supporting Files */,
 			);
 			path = TesteGooglePlaces;
 			sourceTree = "<group>";
 		};
-		B643CBF023749B3B00368E40 /* View Model */ = {
+		B643CBF023749B3B00368E40 /* Design */ = {
 			isa = PBXGroup;
 			children = (
 				B643CBF123749B5300368E40 /* HomeScreenViewController.swift */,
-				B666A1F5237B0839006C3B44 /* OrderViewModel.swift */,
+				B666A1F5237B0839006C3B44 /* OrderViewControllerDesign.swift */,
 				B666A1F1237B062D006C3B44 /* SelectPlaceView */,
-				B666A1F7237B095C006C3B44 /* EstimateAmountModel.swift */,
+				B666A1F7237B095C006C3B44 /* EstimateAmountDesign.swift */,
+				B6560DE8237DEE750043C319 /* LocationViewControllerExDesign.swift */,
 				B666A1F2237B0664006C3B44 /* Others */,
 			);
-			path = "View Model";
+			path = Design;
 			sourceTree = "<group>";
 		};
 		B643CBF323749C9100368E40 /* Supporting Files */ = {
@@ -120,28 +123,36 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B643CBF423749EBD00368E40 /* Model */ = {
+		B643CBF423749EBD00368E40 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				B643CBFC2374AA7600368E40 /* OrderResume.swift */,
 				B6511AD62378C666000FF6DE /* Checkout.swift */,
 				B666A1FD237B7DBC006C3B44 /* ValueResponse.swift */,
 			);
-			path = Model;
+			path = Data;
 			sourceTree = "<group>";
 		};
-		B643CBF523749ECA00368E40 /* View */ = {
+		B643CBF523749ECA00368E40 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				B662E39C2375F19200ED4404 /* OrderViewController.swift */,
 				B643CBFA2374A54A00368E40 /* SelectPlaceTableViewController.swift */,
 				B6511AD023788132000FF6DE /* EstimateAmountViewController.swift */,
+				B6560DEB237DEEE80043C319 /* LocationView */,
 				B666A1F3237B07B8006C3B44 /* CreditCardViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B6560DEB237DEEE80043C319 /* LocationView */ = {
+			isa = PBXGroup;
+			children = (
 				B6511AD423789B74000FF6DE /* LocationViewController.swift */,
 				B666A1FB237B68F7006C3B44 /* LocationViewControllerExLocation.swift */,
 				B666A1FF237B7E75006C3B44 /* LocationViewControllerExPost.swift */,
 			);
-			path = View;
+			path = LocationView;
 			sourceTree = "<group>";
 		};
 		B666A1F1237B062D006C3B44 /* SelectPlaceView */ = {
@@ -235,14 +246,15 @@
 			files = (
 				B643CBF92374A3B900368E40 /* NavigationBar.swift in Sources */,
 				B666A1FC237B68F7006C3B44 /* LocationViewControllerExLocation.swift in Sources */,
+				B6560DE9237DEE750043C319 /* LocationViewControllerExDesign.swift in Sources */,
 				B6EAD36F23761DE30090E631 /* Lines.swift in Sources */,
 				B662E39D2375F19200ED4404 /* OrderViewController.swift in Sources */,
 				B6511AD523789B74000FF6DE /* LocationViewController.swift in Sources */,
 				B6511AD323789423000FF6DE /* TextFormatter.swift in Sources */,
 				B6511AD123788132000FF6DE /* EstimateAmountViewController.swift in Sources */,
-				B666A1F8237B095C006C3B44 /* EstimateAmountModel.swift in Sources */,
+				B666A1F8237B095C006C3B44 /* EstimateAmountDesign.swift in Sources */,
 				B6511AD72378C666000FF6DE /* Checkout.swift in Sources */,
-				B666A1F6237B0839006C3B44 /* OrderViewModel.swift in Sources */,
+				B666A1F6237B0839006C3B44 /* OrderViewControllerDesign.swift in Sources */,
 				B643CBDD23749A3900368E40 /* AppDelegate.swift in Sources */,
 				B643CBDF23749A3900368E40 /* SceneDelegate.swift in Sources */,
 				B666A1FE237B7DBC006C3B44 /* ValueResponse.swift in Sources */,

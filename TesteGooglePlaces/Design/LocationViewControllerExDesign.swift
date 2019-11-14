@@ -1,112 +1,14 @@
 //
-//  LocationViewController.swift
+//  LocationViewControllerExDesign.swift
 //  TesteGooglePlaces
 //
-//  Created by Kelvin Batista Machado on 10/11/19.
+//  Created by Kelvin Batista Machado on 14/11/19.
 //  Copyright © 2019 Kelvin Batista Machado. All rights reserved.
 //
 
 import UIKit
-import MapKit
 
-class LocationViewController: UIViewController, CLLocationManagerDelegate {
-    
-        
-    //    MARK: - Properties
-    
-    var locationManager: CLLocationManager!
-    
-    lazy var contentViewSize = CGSize(width: view.frame.width, height: view.frame.height + 150)
-    
-    
-    //    MARK: - Views
-    
-    lazy var scrollView: UIScrollView = {
-        let view = UIScrollView(frame: .zero)
-        view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        view.frame = self.view.bounds
-        view.contentSize = contentViewSize
-        return view
-    }()
-    
-    lazy var containerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        view.frame.size = contentViewSize
-        return view
-    }()
-    
-    var choiceContainerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        return view
-    }()
-    
-    var valueContainerView:UIView = {
-       let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        return view
-    }()
-    
-    var userLocationContainerView:UIView = {
-       let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        return view
-    }()
-    
-    let headerLabel = UILabel()
-        
-    let orderLocation = UILabel()
-    let orderAdress = UILabel()
-    let chosenProduct = UILabel()
-    
-    let distanceLbl = UILabel()
-    let distanceKMLbl = UILabel()
-    
-    let valueDeliveryLbl = UILabel()
-    let valueDelivery = UILabel()
-    
-    let estimatedValueLbl = UILabel()
-    let estimatedValue = UILabel()
-    
-    let totalValueLbl = UILabel()
-    let totalValue = UILabel()
-
-    let userLocationLbl = UILabel()
-    let userLocationInfoLbl = UILabel()
-    
-    let userLocalLbl = UILabel()
-    let userLocal = UILabel()
-    
-    let pagamentoBtn = UIButton()
-    let creditCardInfo = UILabel()
-    let finalizeOrderButton = UIButton()
-
-        
-    //    MARK: - Life cycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        view.addSubview(scrollView)
-        scrollView.addSubview(containerView)
-        scrollView.contentInset = UIEdgeInsets (top: 35, left: 0, bottom: 0, right: 0)
-        scrollView.contentOffset.y += -35
-        
-        setupLocation()
-        setupNavBar()
-        setupHeader()
-        setupContainer()
-        setupFooterButton()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            self.setupValue()
-            self.setupLocal()
-        }
-        
-        
-    }
-    
+extension LocationViewController {
     func setupHeader() {
         headerLabel.backgroundColor = #colorLiteral(red: 0.4874656796, green: 0.395947814, blue: 1, alpha: 1)
         headerLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -325,6 +227,74 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         ])
     }
     
+    func setupPaymentCC() {
+        paymentBtn.titleLabel?.font = UIFont(name:"Helvetica Neue", size: 16)
+        paymentBtn.titleLabel?.textColor = #colorLiteral(red: 0.4877403378, green: 0.3963682055, blue: 0.998791039, alpha: 1)
+        paymentBtn.setTitleColor( #colorLiteral(red: 0.4877403378, green: 0.3963682055, blue: 0.998791039, alpha: 1), for: UIControl.State.normal)
+        paymentBtn.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        paymentBtn.setTitle("Pagamento", for: .normal)
+        
+        ccInfoLbl.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        ccInfoLbl.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        ccInfoLbl.font = UIFont.init(name: "Helvetica Neue", size: 12)
+        ccInfoLbl.text = ""
+        
+        ccLogoImg.image = nil
+        ccLogoImg.contentMode = .scaleAspectFit
+        
+        symbolLbl.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        symbolLbl.textColor = #colorLiteral(red: 0.4874656796, green: 0.395947814, blue: 1, alpha: 1)
+        symbolLbl.font = UIFont.init(name: "HelveticaNeue-Bold", size: 16)
+        symbolLbl.text = "＞"
+        
+        linha.text = ""
+        linha.addLine(position: .LINE_POSITION_BOTTOM, color: #colorLiteral(red: 0.4874656796, green: 0.395947814, blue: 1, alpha: 1), width: 1.0)
+        
+        setupPaymentCCConstraints()
+    }
+    func setupPaymentCCConstraints() {
+        
+        paymentContainerView.addSubview(paymentBtn)
+        paymentContainerView.addSubview(ccInfoLbl)
+        paymentContainerView.addSubview(ccLogoImg)
+        paymentContainerView.addSubview(symbolLbl)
+        paymentContainerView.addSubview(linha)
+        containerView.addSubview(paymentContainerView)
+        
+        paymentContainerView.translatesAutoresizingMaskIntoConstraints = false
+        paymentBtn.translatesAutoresizingMaskIntoConstraints = false
+        ccInfoLbl.translatesAutoresizingMaskIntoConstraints = false
+        ccLogoImg.translatesAutoresizingMaskIntoConstraints = false
+        symbolLbl.translatesAutoresizingMaskIntoConstraints = false
+        linha.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            paymentContainerView.topAnchor.constraint(equalTo: userLocal.bottomAnchor, constant: 20),
+            paymentContainerView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            paymentContainerView.widthAnchor.constraint(equalToConstant: containerView.frame.width),
+            paymentContainerView.heightAnchor.constraint(equalToConstant: 35),
+            
+            paymentBtn.centerYAnchor.constraint(equalTo: paymentContainerView.centerYAnchor),
+            paymentBtn.leftAnchor.constraint(equalTo: paymentContainerView.leftAnchor, constant: 20),
+
+            ccInfoLbl.centerYAnchor.constraint(equalTo: paymentContainerView.centerYAnchor),
+            ccInfoLbl.leftAnchor.constraint(equalTo: paymentBtn.rightAnchor, constant: 20),
+            
+            ccLogoImg.centerYAnchor.constraint(equalTo: paymentContainerView.centerYAnchor),
+            ccLogoImg.leftAnchor.constraint(equalTo: ccInfoLbl.rightAnchor, constant: 20),
+            
+            symbolLbl.centerYAnchor.constraint(equalTo: paymentContainerView.centerYAnchor),
+            symbolLbl.rightAnchor.constraint(equalTo: paymentContainerView.rightAnchor, constant:-20),
+            
+            linha.topAnchor.constraint(equalTo: paymentBtn.bottomAnchor),
+            linha.leftAnchor.constraint(equalTo: paymentContainerView.leftAnchor, constant: 20),
+            linha.rightAnchor.constraint(equalTo: paymentContainerView.rightAnchor, constant: -20),
+            linha.widthAnchor.constraint(equalToConstant: paymentContainerView.frame.width - 40),
+            
+        ])
+        
+    }
+    
     func setupFooterButton() {
         
         finalizeOrderButton.titleLabel?.font = UIFont(name:"Helvetica Neue", size: 16)
@@ -343,12 +313,12 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
             finalizeOrderButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
             finalizeOrderButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
             finalizeOrderButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
-            finalizeOrderButton.heightAnchor.constraint(equalToConstant: 40)])
+            finalizeOrderButton.heightAnchor.constraint(equalToConstant: 40)
+        ])
     }
     
     @objc func finalizeButtonTapped(){
         let finalize = HomeViewController()
         navigationController?.pushViewController(finalize, animated: true)
     }
-    
 }
