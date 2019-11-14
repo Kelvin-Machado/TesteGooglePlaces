@@ -75,6 +75,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     let userLocationLbl = UILabel()
     let userLocationInfoLbl = UILabel()
     
+    let userLocalLbl = UILabel()
+    let userLocal = UILabel()
+    
     let pagamentoBtn = UIButton()
     let creditCardInfo = UILabel()
     let finalizeOrderButton = UIButton()
@@ -96,13 +99,11 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         setupHeader()
         setupContainer()
         setupFooterButton()
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-//            self.checkoutPost()
-//        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.setupValue()
+            self.setupLocal()
         }
+        
         
     }
     
@@ -222,15 +223,13 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         totalValueLbl.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         totalValueLbl.font = UIFont.init(name: "HelveticaNeue-Bold", size: 14)
         totalValueLbl.numberOfLines = 0
-        totalValueLbl.text = "Valor Total: \n"
-        totalValueLbl.addLine(position: .LINE_POSITION_BOTTOM, color: .lightGray, width: 1.0)
+        totalValueLbl.text = "Valor Total:"
         
         totalValue.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         totalValue.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         totalValue.font = UIFont.init(name: "HelveticaNeue-Bold", size: 14)
         totalValue.numberOfLines = 0
-        totalValue.text = "R$ \(String(format:"%.2f", ValueResponse.total_value)) \n"
-        totalValue.addLine(position: .LINE_POSITION_BOTTOM, color: .lightGray, width: 1.0)
+        totalValue.text = "R$ \(String(format:"%.2f", ValueResponse.total_value))"
         
         valueContainerView.addSubview(distanceLbl)
         valueContainerView.addSubview(distanceKMLbl)
@@ -284,6 +283,46 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
             totalValue.leftAnchor.constraint(equalTo: totalValueLbl.rightAnchor)
         ])
 
+    }
+    
+    func setupLocal() {
+        userLocalLbl.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        userLocalLbl.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        userLocalLbl.font = UIFont.init(name: "HelveticaNeue-Bold", size: 12)
+        userLocalLbl.text = "\nEntregando em:"
+        userLocalLbl.numberOfLines = 0
+        userLocalLbl.addLine(position: .LINE_POSITION_TOP, color: .lightGray, width: 1.0)
+        
+        userLocal.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        userLocal.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        userLocal.font = UIFont.init(name: "Helvetica Neue", size: 14)
+        userLocal.numberOfLines = 0
+        userLocal.text = "\(OrderResume.self.formattedUserLocation ?? "\n") \n"
+        userLocal.addLine(position: .LINE_POSITION_BOTTOM, color: .lightGray, width: 1.0)
+        
+        userLocationContainerView.addSubview(userLocalLbl)
+        userLocationContainerView.addSubview(userLocal)
+        containerView.addSubview(userLocationContainerView)
+        
+        userLocationContainerView.translatesAutoresizingMaskIntoConstraints = false
+        userLocalLbl.translatesAutoresizingMaskIntoConstraints = false
+        userLocal.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            userLocationContainerView.topAnchor.constraint(equalTo: totalValueLbl.bottomAnchor, constant: 20),
+            userLocationContainerView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            userLocationContainerView.widthAnchor.constraint(equalToConstant: containerView.frame.width),
+            
+            userLocalLbl.topAnchor.constraint(equalTo: userLocationContainerView.topAnchor),
+            userLocalLbl.leftAnchor.constraint(equalTo: userLocationContainerView.leftAnchor, constant: 20),
+            userLocalLbl.rightAnchor.constraint(equalTo: userLocationContainerView.rightAnchor, constant:-20),
+            userLocalLbl.widthAnchor.constraint(equalToConstant: userLocationContainerView.frame.width - 40),
+
+            userLocal.topAnchor.constraint(equalTo: userLocalLbl.bottomAnchor, constant: 10),
+            userLocal.leftAnchor.constraint(equalTo: userLocationContainerView.leftAnchor, constant: 20),
+            userLocal.rightAnchor.constraint(equalTo: userLocationContainerView.rightAnchor, constant: -20),
+            userLocal.widthAnchor.constraint(equalToConstant: userLocationContainerView.frame.width - 40),
+        ])
     }
     
     func setupFooterButton() {
