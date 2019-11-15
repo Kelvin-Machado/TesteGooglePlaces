@@ -228,6 +228,7 @@ extension LocationViewController {
     }
     
     func setupPaymentCC() {
+        
         paymentBtn.titleLabel?.font = UIFont(name:"Helvetica Neue", size: 16)
         paymentBtn.titleLabel?.textColor = #colorLiteral(red: 0.4877403378, green: 0.3963682055, blue: 0.998791039, alpha: 1)
         paymentBtn.setTitleColor( #colorLiteral(red: 0.4877403378, green: 0.3963682055, blue: 0.998791039, alpha: 1), for: UIControl.State.normal)
@@ -238,9 +239,13 @@ extension LocationViewController {
         ccInfoLbl.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         ccInfoLbl.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         ccInfoLbl.font = UIFont.init(name: "Helvetica Neue", size: 12)
-        ccInfoLbl.text = ""
+        ccInfoLbl.text = CreditCardData.cardNumberLast
         
-        ccLogoImg.image = nil
+        if (CreditCardData.cardNumber != nil) {
+            ccLogoImg.image = #imageLiteral(resourceName: "mastercard")
+        }else{
+            ccLogoImg.image = nil
+        }
         ccLogoImg.contentMode = .scaleAspectFit
         
         symbolLbl.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -282,7 +287,8 @@ extension LocationViewController {
             ccInfoLbl.leftAnchor.constraint(equalTo: paymentBtn.rightAnchor, constant: 20),
             
             ccLogoImg.centerYAnchor.constraint(equalTo: paymentContainerView.centerYAnchor),
-            ccLogoImg.leftAnchor.constraint(equalTo: ccInfoLbl.rightAnchor, constant: 20),
+            ccLogoImg.leftAnchor.constraint(equalTo: ccInfoLbl.rightAnchor),
+            ccLogoImg.heightAnchor.constraint(equalToConstant: 20),
             
             symbolLbl.centerYAnchor.constraint(equalTo: paymentContainerView.centerYAnchor),
             symbolLbl.rightAnchor.constraint(equalTo: paymentContainerView.rightAnchor, constant:-20),

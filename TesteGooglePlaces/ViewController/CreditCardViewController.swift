@@ -18,7 +18,7 @@ class CreditCardViewController: UIViewController, UITextFieldDelegate {
     
     lazy var contentViewSize = CGSize(width: view.frame.width, height: view.frame.height + 150)
     
-    let defaults = UserDefaults.standard
+    static var defaults = UserDefaults.standard
     static var existeCartao = false
     
     //    MARK: - Views
@@ -348,7 +348,7 @@ class CreditCardViewController: UIViewController, UITextFieldDelegate {
         CreditCardData.holderName = nameCreditCardTxt.text
         CreditCardData.expiryDate = expiryDateTxt.text
         CreditCardData.cvv = Int(cvvTxt.text ?? "")
-        saveData()
+        CreditCardViewController.saveData()
         navigationController?.popViewController(animated: true)
     }
 

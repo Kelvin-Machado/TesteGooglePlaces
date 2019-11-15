@@ -106,7 +106,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         scrollView.addSubview(containerView)
         scrollView.contentInset = UIEdgeInsets (top: 35, left: 0, bottom: 0, right: 0)
         scrollView.contentOffset.y += -35
-        
+        CreditCardViewController.checkForSavedData()
         setupLocation()
         setupNavBar()
         setupHeader()
@@ -115,9 +115,14 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.setupValue()
             self.setupLocal()
-            self.setupPaymentCC()
         }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.setupPaymentCC()
+        }
     }
     
 }

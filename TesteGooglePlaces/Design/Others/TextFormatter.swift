@@ -49,6 +49,7 @@ extension CreditCardViewController {
         CreditCardData.cardNumberRaw = trimmedString //save the raw Credit Card number
         let arrOfCharacters = Array(trimmedString)
         var modifiedCreditCardString = ""
+        var lastFourNumbers = "•••• •••• •••• "
 
         if(arrOfCharacters.count > 0) {
             for i in 0...arrOfCharacters.count-1 {
@@ -56,6 +57,13 @@ extension CreditCardViewController {
                 if((i+1) % 4 == 0 && i+1 != arrOfCharacters.count){
                     modifiedCreditCardString.append(" ")
                 }
+            }
+            if (arrOfCharacters.count == 16) {
+                           lastFourNumbers += String(arrOfCharacters[12]) +
+                               String(arrOfCharacters[13]) +
+                               String(arrOfCharacters[14]) +
+                               String(arrOfCharacters[15])
+                           CreditCardData.cardNumberLast = lastFourNumbers
             }
         }
         return modifiedCreditCardString
