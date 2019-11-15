@@ -70,14 +70,14 @@ class OrderApproved: UIViewController {
         messageLbl.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         messageLbl.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         messageLbl.font = UIFont.init(name: "HelveticaNeue-Bold", size: 16)
-        messageLbl.numberOfLines = 0
-        messageLbl.text = "\(MessageResponse.message ?? "\n") \n"
+        messageLbl.textAlignment = .center
+        messageLbl.text = "\(MessageResponse.message ?? "\n")"
         
         valueLbl.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         valueLbl.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        valueLbl.font = UIFont.init(name: "Helvetica Neue", size: 16)
-        valueLbl.numberOfLines = 0
-        valueLbl.text = "Valor total: R$ \(String(format:"%.2f", MessageResponse.value)) \n"
+        valueLbl.font = UIFont.init(name: "HelveticaNeue-Bold", size: 16)
+        valueLbl.textAlignment = .center
+        valueLbl.text = "Valor total: R$ \(String(format:"%.2f", MessageResponse.value))"
         
         view.addSubview(messageLbl)
         view.addSubview(valueLbl)
