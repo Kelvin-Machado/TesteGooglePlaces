@@ -25,6 +25,7 @@
 		B65BDFAC237F2E540088B9C9 /* CreditCardViewControllerDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65BDFAB237F2E540088B9C9 /* CreditCardViewControllerDesign.swift */; };
 		B65BDFAE237F4B560088B9C9 /* LocationViewControllerExFinalizeOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65BDFAD237F4B560088B9C9 /* LocationViewControllerExFinalizeOrder.swift */; };
 		B65BDFB2237F560C0088B9C9 /* OrderApproved.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65BDFB1237F560C0088B9C9 /* OrderApproved.swift */; };
+		B65BDFB4237F6AE70088B9C9 /* OrderApprovedDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65BDFB3237F6AE70088B9C9 /* OrderApprovedDesign.swift */; };
 		B662E39B2375C43800ED4404 /* PlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B662E39A2375C43800ED4404 /* PlacesCell.swift */; };
 		B662E39D2375F19200ED4404 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B662E39C2375F19200ED4404 /* OrderViewController.swift */; };
 		B666A1F4237B07B8006C3B44 /* CreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666A1F3237B07B8006C3B44 /* CreditCardViewController.swift */; };
@@ -57,6 +58,7 @@
 		B65BDFAB237F2E540088B9C9 /* CreditCardViewControllerDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardViewControllerDesign.swift; sourceTree = "<group>"; };
 		B65BDFAD237F4B560088B9C9 /* LocationViewControllerExFinalizeOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewControllerExFinalizeOrder.swift; sourceTree = "<group>"; };
 		B65BDFB1237F560C0088B9C9 /* OrderApproved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderApproved.swift; sourceTree = "<group>"; };
+		B65BDFB3237F6AE70088B9C9 /* OrderApprovedDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderApprovedDesign.swift; sourceTree = "<group>"; };
 		B662E39A2375C43800ED4404 /* PlacesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCell.swift; sourceTree = "<group>"; };
 		B662E39C2375F19200ED4404 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		B666A1F3237B07B8006C3B44 /* CreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				B6560DE8237DEE750043C319 /* LocationViewControllerExDesign.swift */,
 				B65BDFAB237F2E540088B9C9 /* CreditCardViewControllerDesign.swift */,
 				B666A1F2237B0664006C3B44 /* Others */,
+				B65BDFB3237F6AE70088B9C9 /* OrderApprovedDesign.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				B6EAD36F23761DE30090E631 /* Lines.swift in Sources */,
 				B662E39D2375F19200ED4404 /* OrderViewController.swift in Sources */,
 				B6511AD523789B74000FF6DE /* LocationViewController.swift in Sources */,
+				B65BDFB4237F6AE70088B9C9 /* OrderApprovedDesign.swift in Sources */,
 				B6511AD323789423000FF6DE /* TextFormatter.swift in Sources */,
 				B6511AD123788132000FF6DE /* EstimateAmountViewController.swift in Sources */,
 				B666A1F8237B095C006C3B44 /* EstimateAmountDesign.swift in Sources */,
