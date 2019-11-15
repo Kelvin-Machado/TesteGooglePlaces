@@ -65,6 +65,10 @@ extension CreditCardViewController {
                                String(arrOfCharacters[15])
                            CreditCardData.cardNumberLast = lastFourNumbers
             }
+            if (arrOfCharacters.count < 16) {
+                          lastFourNumbers = ""
+                          CreditCardData.cardNumberLast = lastFourNumbers
+           }
         }
         return modifiedCreditCardString
     }

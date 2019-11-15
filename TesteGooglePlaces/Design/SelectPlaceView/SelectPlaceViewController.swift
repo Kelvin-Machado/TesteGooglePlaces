@@ -138,6 +138,7 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
         finalizeOrderButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         finalizeOrderButton.setTitle("Continuar", for: .normal)
         finalizeOrderButton.layer.cornerRadius = 20
+        finalizeOrderButton.isEnabled = false
 
         finalizeOrderButton.addTarget(self, action: #selector(finalizeButtonTapped), for: .touchUpInside)
         
@@ -154,10 +155,9 @@ class SelectPlaceViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     @objc func finalizeButtonTapped(){
-        let placeOrder = OrderViewController()
-        navigationController?.pushViewController(placeOrder, animated: true)
+            let placeOrder = OrderViewController()
+            navigationController?.pushViewController(placeOrder, animated: true)
     }
-    
     
     
     //MARK: - Setup keyboard

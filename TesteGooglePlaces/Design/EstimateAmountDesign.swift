@@ -150,10 +150,14 @@ extension EstimateAmountViewController {
     }
 
     @objc func myTextFieldDidChange(_ textField: UITextField) {
-
+        
         if let amountString = textField.text?.currencyInputFormatting() {
             textField.text = amountString
+            finalizeOrderButton.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+            finalizeOrderButton.isEnabled = true
         }
+        
+        
     }
     
     func setupFooterButton() {
@@ -163,6 +167,7 @@ extension EstimateAmountViewController {
         finalizeOrderButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         finalizeOrderButton.setTitle("Continuar", for: .normal)
         finalizeOrderButton.layer.cornerRadius = 20
+        finalizeOrderButton.isEnabled = false
 
         finalizeOrderButton.addTarget(self, action: #selector(finalizeButtonTapped), for: .touchUpInside)
         

@@ -44,6 +44,8 @@ extension SelectPlaceViewController {
         }
         storeCoords.self.storeLatitude = lat.stringValue
         storeCoords.self.storeLongitude = lng.stringValue
+        finalizeOrderButton.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+        finalizeOrderButton.isEnabled = true
      }
 
      
@@ -64,7 +66,7 @@ extension SelectPlaceViewController {
                              if let dict = jsonDict as? Dictionary<String, AnyObject>{
                                  
                                  if let results = dict["results"] as? [Dictionary<String, AnyObject>] {
-//                                    print("json == \(results)") ///remover
+//                                    print("json == \(results)")
                                      self.resultsArray.removeAll()
                                      for dct in results {
                                          self.resultsArray.append(dct)

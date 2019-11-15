@@ -111,7 +111,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         setupNavBar()
         setupHeader()
         setupContainer()
-        setupFooterButton()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.setupValue()
             self.setupLocal()
@@ -122,6 +121,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.setupPaymentCC()
+            self.setupFooterButton()
         }
     }
     

@@ -241,11 +241,12 @@ extension LocationViewController {
         ccInfoLbl.font = UIFont.init(name: "Helvetica Neue", size: 12)
         ccInfoLbl.text = CreditCardData.cardNumberLast
         
-        if (CreditCardData.cardNumber != nil) {
+        if (CreditCardData.cardNumber != "") {
             ccLogoImg.image = #imageLiteral(resourceName: "mastercard")
         }else{
             ccLogoImg.image = nil
         }
+        
         ccLogoImg.contentMode = .scaleAspectFit
         
         symbolLbl.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -310,9 +311,16 @@ extension LocationViewController {
         
         finalizeOrderButton.titleLabel?.font = UIFont(name:"Helvetica Neue", size: 16)
         finalizeOrderButton.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        finalizeOrderButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        finalizeOrderButton.setTitle("Continuar", for: .normal)
+        finalizeOrderButton.setTitle("Finalizar Pedido", for: .normal)
         finalizeOrderButton.layer.cornerRadius = 20
+        
+        if (CreditCardData.cardNumber != "") && (CreditCardData.cardNumberLast != "")  {
+            finalizeOrderButton.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+            finalizeOrderButton.isEnabled = true
+        }else{
+            finalizeOrderButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+            finalizeOrderButton.isEnabled = false
+        }
 
         finalizeOrderButton.addTarget(self, action: #selector(finalizeButtonTapped), for: .touchUpInside)
         
