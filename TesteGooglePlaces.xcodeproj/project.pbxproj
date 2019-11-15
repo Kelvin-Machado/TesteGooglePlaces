@@ -21,6 +21,7 @@
 		B6511AD523789B74000FF6DE /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6511AD423789B74000FF6DE /* LocationViewController.swift */; };
 		B6511AD72378C666000FF6DE /* Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6511AD62378C666000FF6DE /* Checkout.swift */; };
 		B6560DE9237DEE750043C319 /* LocationViewControllerExDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6560DE8237DEE750043C319 /* LocationViewControllerExDesign.swift */; };
+		B6560DED237E05A40043C319 /* CreditCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6560DEC237E05A40043C319 /* CreditCardData.swift */; };
 		B662E39B2375C43800ED4404 /* PlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B662E39A2375C43800ED4404 /* PlacesCell.swift */; };
 		B662E39D2375F19200ED4404 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B662E39C2375F19200ED4404 /* OrderViewController.swift */; };
 		B666A1F4237B07B8006C3B44 /* CreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666A1F3237B07B8006C3B44 /* CreditCardViewController.swift */; };
@@ -49,6 +50,7 @@
 		B6511AD423789B74000FF6DE /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		B6511AD62378C666000FF6DE /* Checkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkout.swift; sourceTree = "<group>"; };
 		B6560DE8237DEE750043C319 /* LocationViewControllerExDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewControllerExDesign.swift; sourceTree = "<group>"; };
+		B6560DEC237E05A40043C319 /* CreditCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardData.swift; sourceTree = "<group>"; };
 		B662E39A2375C43800ED4404 /* PlacesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCell.swift; sourceTree = "<group>"; };
 		B662E39C2375F19200ED4404 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		B666A1F3237B07B8006C3B44 /* CreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				B643CBFC2374AA7600368E40 /* OrderResume.swift */,
 				B6511AD62378C666000FF6DE /* Checkout.swift */,
 				B666A1FD237B7DBC006C3B44 /* ValueResponse.swift */,
+				B6560DEC237E05A40043C319 /* CreditCardData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6560DED237E05A40043C319 /* CreditCardData.swift in Sources */,
 				B643CBF92374A3B900368E40 /* NavigationBar.swift in Sources */,
 				B666A1FC237B68F7006C3B44 /* LocationViewControllerExLocation.swift in Sources */,
 				B6560DE9237DEE750043C319 /* LocationViewControllerExDesign.swift in Sources */,

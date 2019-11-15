@@ -233,6 +233,7 @@ extension LocationViewController {
         paymentBtn.setTitleColor( #colorLiteral(red: 0.4877403378, green: 0.3963682055, blue: 0.998791039, alpha: 1), for: UIControl.State.normal)
         paymentBtn.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         paymentBtn.setTitle("Pagamento", for: .normal)
+        paymentBtn.addTarget(self, action: #selector(paymentBtnTapped), for: .touchUpInside)
         
         ccInfoLbl.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         ccInfoLbl.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -292,7 +293,11 @@ extension LocationViewController {
             linha.widthAnchor.constraint(equalToConstant: paymentContainerView.frame.width - 40),
             
         ])
-        
+    }
+    
+    @objc func paymentBtnTapped(){
+        let addCreditCard = CreditCardViewController()
+        navigationController?.pushViewController(addCreditCard, animated: true)
     }
     
     func setupFooterButton() {
