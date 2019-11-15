@@ -14,3 +14,8 @@ struct ValueResponse {
     static var total_value : Double!
     static var fee_value : Double!
 }
+
+struct MessageResponse {
+    static var value: Double!
+    static var message: String!
+}

@@ -337,7 +337,8 @@ extension LocationViewController {
     }
     
     @objc func finalizeButtonTapped(){
-        let finalize = HomeViewController()
+        finalizeOrderPost()
+        let finalize = OrderApproved()
         navigationController?.pushViewController(finalize, animated: true)
     }
 }

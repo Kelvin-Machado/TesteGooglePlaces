@@ -49,6 +49,9 @@ extension CreditCardViewController {
         let card_number_last = defaults.value(forKey: Keys.card_number_last) as? String ?? ""
         CreditCardData.cardNumberLast = card_number_last
         
+        let card_number_raw = defaults.value(forKey: Keys.card_number_raw) as? String ?? ""
+        CreditCardData.cardNumberRaw = card_number_raw
+        
         let holder_name = defaults.value(forKey: Keys.holder_name) as? String ?? ""
         CreditCardData.holderName = holder_name
         

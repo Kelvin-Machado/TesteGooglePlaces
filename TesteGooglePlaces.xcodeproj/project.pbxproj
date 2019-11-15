@@ -23,6 +23,8 @@
 		B6560DE9237DEE750043C319 /* LocationViewControllerExDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6560DE8237DEE750043C319 /* LocationViewControllerExDesign.swift */; };
 		B6560DED237E05A40043C319 /* CreditCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6560DEC237E05A40043C319 /* CreditCardData.swift */; };
 		B65BDFAC237F2E540088B9C9 /* CreditCardViewControllerDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65BDFAB237F2E540088B9C9 /* CreditCardViewControllerDesign.swift */; };
+		B65BDFAE237F4B560088B9C9 /* LocationViewControllerExFinalizeOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65BDFAD237F4B560088B9C9 /* LocationViewControllerExFinalizeOrder.swift */; };
+		B65BDFB2237F560C0088B9C9 /* OrderApproved.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65BDFB1237F560C0088B9C9 /* OrderApproved.swift */; };
 		B662E39B2375C43800ED4404 /* PlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B662E39A2375C43800ED4404 /* PlacesCell.swift */; };
 		B662E39D2375F19200ED4404 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B662E39C2375F19200ED4404 /* OrderViewController.swift */; };
 		B666A1F4237B07B8006C3B44 /* CreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666A1F3237B07B8006C3B44 /* CreditCardViewController.swift */; };
@@ -53,6 +55,8 @@
 		B6560DE8237DEE750043C319 /* LocationViewControllerExDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewControllerExDesign.swift; sourceTree = "<group>"; };
 		B6560DEC237E05A40043C319 /* CreditCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardData.swift; sourceTree = "<group>"; };
 		B65BDFAB237F2E540088B9C9 /* CreditCardViewControllerDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardViewControllerDesign.swift; sourceTree = "<group>"; };
+		B65BDFAD237F4B560088B9C9 /* LocationViewControllerExFinalizeOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewControllerExFinalizeOrder.swift; sourceTree = "<group>"; };
+		B65BDFB1237F560C0088B9C9 /* OrderApproved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderApproved.swift; sourceTree = "<group>"; };
 		B662E39A2375C43800ED4404 /* PlacesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCell.swift; sourceTree = "<group>"; };
 		B662E39C2375F19200ED4404 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		B666A1F3237B07B8006C3B44 /* CreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 				B6511AD023788132000FF6DE /* EstimateAmountViewController.swift */,
 				B6560DEB237DEEE80043C319 /* LocationView */,
 				B666A1F3237B07B8006C3B44 /* CreditCardViewController.swift */,
+				B65BDFB1237F560C0088B9C9 /* OrderApproved.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 				B6511AD423789B74000FF6DE /* LocationViewController.swift */,
 				B666A1FB237B68F7006C3B44 /* LocationViewControllerExLocation.swift */,
 				B666A1FF237B7E75006C3B44 /* LocationViewControllerExPost.swift */,
+				B65BDFAD237F4B560088B9C9 /* LocationViewControllerExFinalizeOrder.swift */,
 			);
 			path = LocationView;
 			sourceTree = "<group>";
@@ -250,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B65BDFB2237F560C0088B9C9 /* OrderApproved.swift in Sources */,
 				B65BDFAC237F2E540088B9C9 /* CreditCardViewControllerDesign.swift in Sources */,
 				B6560DED237E05A40043C319 /* CreditCardData.swift in Sources */,
 				B643CBF92374A3B900368E40 /* NavigationBar.swift in Sources */,
@@ -267,6 +274,7 @@
 				B643CBDF23749A3900368E40 /* SceneDelegate.swift in Sources */,
 				B666A1FE237B7DBC006C3B44 /* ValueResponse.swift in Sources */,
 				B662E39B2375C43800ED4404 /* PlacesCell.swift in Sources */,
+				B65BDFAE237F4B560088B9C9 /* LocationViewControllerExFinalizeOrder.swift in Sources */,
 				B643CBF72374A26300368E40 /* SelectPlaceViewController.swift in Sources */,
 				B643CBF223749B5300368E40 /* HomeScreenViewController.swift in Sources */,
 				B666A200237B7E75006C3B44 /* LocationViewControllerExPost.swift in Sources */,
