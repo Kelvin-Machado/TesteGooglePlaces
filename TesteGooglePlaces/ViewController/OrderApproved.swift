@@ -9,6 +9,8 @@
 import UIKit
 
 class OrderApproved: UIViewController {
+    
+    var activityIndicatorView: ActivityIndicatorView!
 
     //    MARK: - Views
     let headerLbl = UILabel()
@@ -24,8 +26,19 @@ class OrderApproved: UIViewController {
         setupHeader()
         setupImage()
 
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        self.activityIndicatorView = ActivityIndicatorView(title: "Carregando...", center: view.center)
+        self.view.addSubview(self.activityIndicatorView.getViewActivityIndicator())
+        
+        self.activityIndicatorView.startAnimating()
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.setupMessage()
+            self.activityIndicatorView.stopAnimating()
         }
     }
 }

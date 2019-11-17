@@ -18,6 +18,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     
     lazy var contentViewSize = CGSize(width: view.frame.width, height: view.frame.height + 150)
     
+    var loadingView : LoadingView!
     
     //    MARK: - Views
     
@@ -111,6 +112,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         setupNavBar()
         setupHeader()
         setupContainer()
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.setupValue()
             self.setupLocal()
@@ -119,10 +121,15 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.loadingView = LoadingView(uiView: self.view, message: "Carregando...")
+    
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.setupPaymentCC()
             self.setupFooterButton()
+            self.loadingView.hide()
         }
     }
+    
+
     
 }

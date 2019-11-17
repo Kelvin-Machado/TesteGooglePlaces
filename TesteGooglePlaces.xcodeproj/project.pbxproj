@@ -20,6 +20,8 @@
 		B6511AD323789423000FF6DE /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6511AD223789423000FF6DE /* TextFormatter.swift */; };
 		B6511AD523789B74000FF6DE /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6511AD423789B74000FF6DE /* LocationViewController.swift */; };
 		B6511AD72378C666000FF6DE /* Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6511AD62378C666000FF6DE /* Checkout.swift */; };
+		B65471352380CBF60020949D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65471342380CBF60020949D /* LoadingView.swift */; };
+		B65471372380DE6F0020949D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65471362380DE6F0020949D /* ActivityIndicator.swift */; };
 		B6560DE9237DEE750043C319 /* LocationViewControllerExDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6560DE8237DEE750043C319 /* LocationViewControllerExDesign.swift */; };
 		B6560DED237E05A40043C319 /* CreditCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6560DEC237E05A40043C319 /* CreditCardData.swift */; };
 		B65BDFAC237F2E540088B9C9 /* CreditCardViewControllerDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65BDFAB237F2E540088B9C9 /* CreditCardViewControllerDesign.swift */; };
@@ -53,6 +55,8 @@
 		B6511AD223789423000FF6DE /* TextFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
 		B6511AD423789B74000FF6DE /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		B6511AD62378C666000FF6DE /* Checkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkout.swift; sourceTree = "<group>"; };
+		B65471342380CBF60020949D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B65471362380DE6F0020949D /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		B6560DE8237DEE750043C319 /* LocationViewControllerExDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewControllerExDesign.swift; sourceTree = "<group>"; };
 		B6560DEC237E05A40043C319 /* CreditCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardData.swift; sourceTree = "<group>"; };
 		B65BDFAB237F2E540088B9C9 /* CreditCardViewControllerDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardViewControllerDesign.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				B643CBF82374A3B900368E40 /* NavigationBar.swift */,
 				B6EAD36E23761DE30090E631 /* Lines.swift */,
 				B6511AD223789423000FF6DE /* TextFormatter.swift */,
+				B65471342380CBF60020949D /* LoadingView.swift */,
+				B65471362380DE6F0020949D /* ActivityIndicator.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -263,6 +269,7 @@
 				B65BDFAC237F2E540088B9C9 /* CreditCardViewControllerDesign.swift in Sources */,
 				B6560DED237E05A40043C319 /* CreditCardData.swift in Sources */,
 				B643CBF92374A3B900368E40 /* NavigationBar.swift in Sources */,
+				B65471372380DE6F0020949D /* ActivityIndicator.swift in Sources */,
 				B666A1FC237B68F7006C3B44 /* LocationViewControllerExLocation.swift in Sources */,
 				B6560DE9237DEE750043C319 /* LocationViewControllerExDesign.swift in Sources */,
 				B6EAD36F23761DE30090E631 /* Lines.swift in Sources */,
@@ -274,6 +281,7 @@
 				B666A1F8237B095C006C3B44 /* EstimateAmountDesign.swift in Sources */,
 				B6511AD72378C666000FF6DE /* Checkout.swift in Sources */,
 				B666A1F6237B0839006C3B44 /* OrderViewControllerDesign.swift in Sources */,
+				B65471352380CBF60020949D /* LoadingView.swift in Sources */,
 				B643CBDD23749A3900368E40 /* AppDelegate.swift in Sources */,
 				B643CBDF23749A3900368E40 /* SceneDelegate.swift in Sources */,
 				B666A1FE237B7DBC006C3B44 /* ValueResponse.swift in Sources */,
